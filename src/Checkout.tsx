@@ -39,7 +39,12 @@ export const Checkout: React.FC<{}> = () => {
             <Text my={4} fontWeight="bold">
               ${getTotal(basket).toFixed(2)}
             </Text>
-            <Button colorScheme="green">Pay out</Button>
+            <Button
+              colorScheme="green"
+              onClick={() => alert("Good purchase!!")}
+            >
+              Pay out
+            </Button>
           </Box>
         </Flex>
       </Box>
