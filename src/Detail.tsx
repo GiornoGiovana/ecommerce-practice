@@ -53,16 +53,16 @@ export const Detail: React.FC<{}> = () => {
         <Spinner size="lg" />
       ) : (
         <Box borderRadius="md" borderWidth={1} p={2}>
-          <Flex>
+          <Flex wrap="wrap" justify="center">
             <Image
               my="auto"
-              w={250}
               h={250}
+              w={220}
               src={product?.image}
               alt={product?.title}
             />
 
-            <Flex direction="column" p={4} maxW={600}>
+            <Flex direction="column" p={4} maxW={800}>
               <Heading size="lg">{product?.title}</Heading>
               <Text color="gray.400" mt={4}>
                 {product?.category}

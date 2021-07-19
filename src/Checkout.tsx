@@ -30,7 +30,7 @@ export const Checkout: React.FC<{}> = () => {
         >
           <Box maxW={800}>
             {formattedBasket(basket).map((product) => (
-              <CheckProduct product={product} />
+              <CheckProduct key={product.id} product={product} />
             ))}
           </Box>
 

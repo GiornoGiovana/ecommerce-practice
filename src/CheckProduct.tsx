@@ -21,7 +21,6 @@ export const CheckProduct: React.FC<CheckProductProps> = ({ product }) => {
 
   return (
     <Center
-      key={product.id}
       borderBottomWidth={1}
       py={4}
       alignItems="center"

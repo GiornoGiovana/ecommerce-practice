@@ -15,15 +15,15 @@ const BasketReducer = (state: State, action: Actions) => {
       return [...state, ...action.products];
     case "remove": {
       const index = state.findIndex((product) => product.id === action.id);
-      let newBaset = [...state];
+      let newBasket = [...state];
       if (index >= 0) {
-        newBaset.splice(index, 1);
+        newBasket.splice(index, 1);
       } else {
         console.warn(
           `Cant remove product (id: ${action.id}) as its not in basket`
         );
       }
-      return newBaset;
+      return newBasket;
     }
     default:
       return state;
