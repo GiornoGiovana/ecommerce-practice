@@ -35,13 +35,16 @@ export const Detail: React.FC<{}> = () => {
   }, [id]);
 
   const addToCart = () => {
-    if (product && count === 1) {
-      dispatch({ type: "addOne", product });
-    } else if (product && count > 1) {
-      const products = [];
-      for (let i = 0; i < count; i++) products.push(product);
-      dispatch({ type: "addMany", products });
+    if (product) {
+      const item = { product, amount: count };
+      dispatch({ type: "add", item });
     }
+    // if (product && count === 1) {
+    //   dispatch({ type: "addOne", product });
+    // } else if (product && count > 1) {
+    //   const products = { product, count };
+    //   dispatch({ type: "addMany", products });
+    // }
   };
 
   return (

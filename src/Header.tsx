@@ -2,6 +2,7 @@ import { Box, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useBasket } from "./BasketContext";
+import { getNumberOfProduct } from "./util";
 
 export const Header: React.FC<{}> = () => {
   const { basket } = useBasket();
@@ -24,7 +25,7 @@ export const Header: React.FC<{}> = () => {
         <Spacer />
         <Box>
           <Text fontWeight="semibold" fontSize="lg">
-            <Link to="/cart">Cart: {basket.length}</Link>
+            <Link to="/cart">Cart: {getNumberOfProduct(basket)}</Link>
           </Text>
         </Box>
       </Flex>

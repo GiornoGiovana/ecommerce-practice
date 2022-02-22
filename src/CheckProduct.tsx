@@ -2,17 +2,21 @@ import { Center, Flex, Heading, Button, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { useBasket } from "./BasketContext";
 import { Product } from "./types";
-import { getNumberOfProduct } from "./util";
 
 interface CheckProductProps {
   product: Product;
+  amount: number;
 }
 
-export const CheckProduct: React.FC<CheckProductProps> = ({ product }) => {
-  const { basket, dispatch } = useBasket();
+export const CheckProduct: React.FC<CheckProductProps> = ({
+  product,
+  amount,
+}) => {
+  const { dispatch } = useBasket();
 
   const addToBasket = (product: Product) => {
-    dispatch({ type: "addOne", product });
+    const item = { product, amount: 1 };
+    dispatch({ type: "add", item });
   };
 
   const removeFromBasket = (productId: number) => {
@@ -46,7 +50,7 @@ export const CheckProduct: React.FC<CheckProductProps> = ({ product }) => {
         </Heading>
 
         <Text>${product.price}</Text>
-        <Text>Qty: {getNumberOfProduct(basket, product.id)}</Text>
+        <Text>Qty: {amount}</Text>
         <Flex h={110} direction="column" justify="space-evenly">
           <Button colorScheme="teal" onClick={() => addToBasket(product)}>
             Add To Basket

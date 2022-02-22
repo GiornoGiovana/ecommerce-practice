@@ -7,12 +7,13 @@ export interface Product {
   image: string;
 }
 
+export type BasketItem = { product: Product; amount: number };
+
 export type Actions =
-  | { type: "addOne"; product: Product }
-  | { type: "addMany"; products: Product[] }
+  | { type: "add"; item: BasketItem }
   | { type: "remove"; id: number };
 
-export type State = Product[];
+export type State = BasketItem[];
 
 export interface BasketProps {
   basket: State;
